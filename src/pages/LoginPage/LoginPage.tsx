@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { AppButton } from "../../components/UI/AppButton/AppButton";
 import { AppInput } from "../../components/UI/AppInput/AppInput";
-import "./LoginPage.scss";
+// import "./LoginPage.scss";
 import { LoginWith } from "../../components/LoginWith/LoginWith";
 import { AppHeading } from "../../components/Typography/AppHeading";
+import { SCLoginPage } from "./LoginPage.styled";
 
 export const LoginPage = () => {
   return (
-    <div className="LoginPage">
+    <SCLoginPage>
       <AppHeading headingText="Авторизация" headingType={"h1"}/>
       
       <form action="#">
@@ -28,6 +29,6 @@ export const LoginPage = () => {
         <LoginWith/>
         
       </div>
-    </div>
+    </SCLoginPage>
   );
 };

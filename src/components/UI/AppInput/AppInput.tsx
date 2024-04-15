@@ -1,3 +1,5 @@
+import { SCAppInput } from "./AppInput.styled";
+
 type AppInputProps = {
     inputType: string;
     inputPlaceholder: string;
@@ -5,6 +7,6 @@ type AppInputProps = {
 
 export const AppInput = ({ inputPlaceholder, inputType }: AppInputProps) => {
     return (
-        <input type={inputType} placeholder={inputPlaceholder} />
+        <SCAppInput type={inputType} placeholder={inputPlaceholder} />
     );
 };
