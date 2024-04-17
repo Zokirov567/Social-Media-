@@ -1,12 +1,15 @@
 import { SCAppInput } from "./AppInput.styled";
 
-type AppInputProps = {
-    inputType: string;
-    inputPlaceholder: string;
-}
+interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    errorMessage?: string;
+    isError?: boolean;
+  }  
 
-export const AppInput = ({ inputPlaceholder, inputType }: AppInputProps) => {
+export const AppInput = ({ type, placeholder, required, ...props }: AppInputProps) => {
     return (
-        <SCAppInput type={inputType} placeholder={inputPlaceholder} />
+        <SCAppInput type={Type} placeholder={Placeholder} />
     );
 };
+
+
+  

@@ -6,7 +6,7 @@ import { LoginWith } from "../../components/LoginWith/LoginWith";
 import { AppHeading } from "../../components/Typography/AppHeading";
 import { SCLoginPage } from "./LoginPage.styled";
 import * as yup from "yup";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 interface ILoginForm {
@@ -23,15 +23,24 @@ const loginFormSchema = yup.object({
 });
 
 export const LoginPage = () => {
-
-  const {control, handleSubmit, fromState: {errors}} = useForm({resolver: yupResolver(loginFormSchema)})
+  const {
+    control,
+    handleSubmit,
+    fromState: { errors },
+  } = useForm({
+    resolver: yupResolver(loginFormSchema),
+    defaultValues: { useremail: "", userpassword: "" },
+  });
 
   return (
     <SCLoginPage>
       <AppHeading headingText="Авторизация" headingType={"h1"} />
-
       <form action="#">
-        <AppInput inputType={"tel"} inputPlaceholder={"Номер телефона"} />
+     <Controller name="username" 
+     control={control}
+     render={(field) => (
+      <AppInput inputType={"tel"} inputPlaceholder={"Номер телефона"}
+    )} />
         <AppInput inputType={"password"} inputPlaceholder={"Пароль"} />
 
         <Link to={"/main"}>
